@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ErrorBoundary from "./error-boundary";
 import { Suspense } from "react";
 import PokemonDetail from "./pokemon-detail";
+import PokemonSearch from "./pokemon-search";
 
 const App = () => {
     return (
@@ -17,6 +17,7 @@ const App = () => {
                 <Suspense fallback="loading pokemon...">
                     <PokemonDetail />
                 </Suspense>
+                <PokemonSearch />
             </ErrorBoundary>
         </div>
     );
