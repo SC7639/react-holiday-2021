@@ -1,5 +1,5 @@
 {
-    "files": ["app.tsx"],
+    "files": ["app.tsx", "../src/global.d.ts"],
     "compilerOptions": {
         "target": "es5",
         "lib": ["DOM", "DOM.Iterable", "esnext", "es7"],

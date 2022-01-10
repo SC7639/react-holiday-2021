@@ -1,25 +1,32 @@
 import "./App.css";
 import ErrorBoundary from "./error-boundary";
-import { Suspense } from "react";
-import PokemonDetail from "./pokemon-detail";
+import { FC, lazy, Suspense } from "react";
 import PokemonSearch from "./pokemon-search";
+import Html from "./Html";
 
-const App = () => {
+const PokemonDetail = lazy(() => import("./pokemon-detail"));
+
+type Props = {
+    assets: { [key: string]: string };
+};
+const App: FC<Props> = ({ assets }) => {
     return (
-        <div className="App">
-            <h1>Pokedex memory game</h1>
-            <p>
-                Test your Poke-memory by guessing which pokemon is next - before
-                it appears.
-            </p>
+        <Html title="React Holidays" assets={assets}>
+            <div className="App">
+                <h1>Pokedex memory game</h1>
+                <p>
+                    Test your Poke-memory by guessing which pokemon is next -
+                    before it appears.
+                </p>
 
-            <ErrorBoundary>
-                <Suspense fallback="loading pokemon...">
-                    <PokemonDetail />
-                </Suspense>
-                <PokemonSearch />
-            </ErrorBoundary>
-        </div>
+                <ErrorBoundary>
+                    <Suspense fallback="loading pokemon...">
+                        <PokemonDetail />
+                    </Suspense>
+                    <PokemonSearch />
+                </ErrorBoundary>
+            </div>
+        </Html>
     );
 };
 

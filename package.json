@@ -10,6 +10,7 @@
         "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
         "express": "^4.17.2",
+        "express-static-gzip": "^2.1.1",
         "node-fetch": "^2.6.6",
         "react": "^18.0.0-rc.0",
         "react-dom": "^18.0.0-rc.0",
@@ -24,8 +25,10 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "start-server": "NODE_ENV=development concurrently -n ssr-server,typescript \"nodemon\" \"npm run tsc:watch\"",
-        "tsc:watch": "tsc-watch --noClear -p server/"
+        "start-server": "NODE_ENV=production concurrently -n ssr-server,typescript \"nodemon\" \"npm run tsc:watch\"",
+        "start-ssr": "nodemon --config build-ssr.nodemon.json",
+        "tsc:watch": "tsc-watch --noClear -p server/",
+        "build-ssr": "./scripts/build-ssr-bundle.sh"
     },
     "eslintConfig": {
         "extends": [

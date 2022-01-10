@@ -1,0 +1,14 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ignore": [
+        "server",
+        "build",
+        "src/index.tsx",
+        "src/index.tsx.bk",
+        "src/imported.ts"
+    ],
+    "ext": "ts tsx",
+    "exec": "NODE_ENV=production npm run build"
+}

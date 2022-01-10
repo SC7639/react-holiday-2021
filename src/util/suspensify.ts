@@ -10,7 +10,7 @@ const suspensify =
         let result: T;
         let err: Error;
 
-        let suspender = promise(...args).then(
+        const suspender = promise(...args).then(
             (r) => {
                 status = "success";
                 result = r;
